@@ -39,8 +39,8 @@ console.log("SERVER STARTED");
 
 async function main(date) {
   try {
-    const triggerDate = moment(triggerTimeStr, "HH:mm").tz(timeZone);
-    const areEqual = triggerDate.isSame(date, "second");
+    const currTimeStr = date.tz(timeZone).format("HH:mm:ss");
+    const areEqual = currTimeStr === triggerTimeStr;
     if (!areEqual) return;
     const startDate = moment(startTimeStr, "HH:mm").tz(timeZone);
     const endDate = moment(endTimeStr, "HH:mm").tz(timeZone);
